@@ -4,7 +4,7 @@ import { getBasketTotal } from '../reducer';
 import Header from './headerComponent'
 import Footer from './footerComponent'
 import{useNavigate}from 'react-router-dom';
-import CurrencyFormat from 'react-currency-format';
+import {NumericFormat} from 'react-number-format';
 import styled from 'styled-components'
 import Card from './orderCard'
 
@@ -37,7 +37,7 @@ function UserOrder() {
             </ShopingCart>
           
             <Subtotal>
-            <CurrencyFormat renderText={(value)=>( 
+            <NumericFormat renderText={(value)=>( 
                 <div class='flex-column'>
                     <p>SubTotal({basket.length} items):
                         <strong>{value}</strong></p> 
@@ -61,8 +61,8 @@ function UserOrder() {
             decimalScale={2}
             value={getBasketTotal(basket)}
             displayType="text"
-            thousandSeparator={true}
-            prefix={"₹ "}
+            thousandSeparator=","
+            prefix="₹" 
             />
             <button onClick={()=>navigate('/address')}>Click Here To Checkout</button>
             </Subtotal>

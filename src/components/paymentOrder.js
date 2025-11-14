@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import { useStateValue } from '../StateProvider'
 import styled from 'styled-components'
 import {getBasketTotal} from '../reducer'
-import CurrencyFormat from 'react-currency-format'
+import {NumericFormat} from 'react-number-format'
 import {useNavigate} from 'react-router-dom'
 import Header from './headerComponent';
 import Footer from './footerComponent';
@@ -88,7 +88,7 @@ function PaymentOrder() {
           </OrderContainer>
         </ReviewContainer>
         <Subtotal>
-          <CurrencyFormat renderText={(value)=>( 
+          <NumericFormat renderText={(value)=>( 
             <>
               <p class='position-fixed' style={{textAlign:'center',fontWeight:'bold',marginLeft:90+'px'}}>SubTotal({basket.length} items):
               <strong>{value}</strong></p> 
@@ -97,7 +97,7 @@ function PaymentOrder() {
           decimalScale={2}
           value={getBasketTotal(basket)}
           displayType="text"
-          thousandSeparator={true}
+          thousandSeparator=","
           prefix={"₹ "}
           />
           <br/>
