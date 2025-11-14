@@ -52,7 +52,7 @@ function Admin() {
     <div class="position-absolute bottom-0 mx-1">
     <Footer/>
     </div>
-    
+    <div></div>
     </div>
   )
 }
